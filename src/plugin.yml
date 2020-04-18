@@ -1,0 +1,6 @@
+name: CommandLimiter
+main: com.peeorun.commandlimiter.CommandLimiter
+version: 0.0.2
+description: Spigot/Paper plugin limiting the command in terms of quantity and time
+api-version: "1.15"
+authors: [Peeorun, Floatoverflow]
