@@ -6,30 +6,31 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerCommandPreprocessEvent;
 
-public class Listeners implements Listener {
 
+public class Listeners implements Listener
+{
     public static int playerCommandLimit = 10;
     public static String pluginPrefix = ChatColor.RED + "[CommandLimiter] ";
 
+
     @EventHandler
-    public void onPreCommand(PlayerCommandPreprocessEvent event)
-    {
+    public void onPreCommand( PlayerCommandPreprocessEvent event ) {
         Player player = event.getPlayer();
-        String[] args = event.getMessage().split(" ");
-        if (args[0].equalsIgnoreCase("/tpa") && args.length == 1)
+
+        if( player.hasPermission( "group.vip" ) )
         {
-            if (playerCommandLimit > 0){
+            player.sendMessage(pluginPrefix + ChatColor.GOLD + "VIP permission enabled!" );
+        }
+
+
+        if (event.getMessage().toLowerCase().startsWith("/tpa")) {
+            if (playerCommandLimit > 0) {
                 playerCommandLimit--;
                 player.sendMessage(pluginPrefix + ChatColor.GOLD + "You have " + playerCommandLimit + " left teleports.");
-            }else{
-                player.sendMessage( pluginPrefix + ChatColor.GOLD + "You don't have any teleports left.");
+            } else {
+                player.sendMessage(pluginPrefix + ChatColor.GOLD + "You don't have any teleports left.");
                 event.setCancelled(true);
             }
-
-
         }
     }
-
-
-
 }
