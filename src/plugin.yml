@@ -1,6 +1,6 @@
 name: CommandLimiter
 main: com.peeorun.commandlimiter.CommandLimiter
-version: 0.0.2
-description: Spigot/Paper plugin limiting the command in terms of quantity and time
+version: 0.0.5
+description: CommandLimiter is a spigot plugin which aims to give administrator possibility to limit specific command in terms of quantity and time in given permission group
 api-version: "1.15"
 authors: [Peeorun, Floatoverflow]
